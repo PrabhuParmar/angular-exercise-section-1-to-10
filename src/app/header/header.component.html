@@ -1,0 +1,29 @@
+<!-- Header Start -->
+<nav class="navbar navbar-expand-sm bg-body-tertiary  header-main-section">
+    <div class="container-fluid d-flex justify-content-between">
+        <a class="navbar-brand header-title">MyShop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+            <span class="navbar-text">
+                <ul class="navbar-nav navbar-item d-flex mx-0 mx-sm-2">
+                    <li class="nav-item mx-sm-3 ">
+                        <a class="nav-link " aria-current="page" [ngClass]="{'active':selectedMenuOption==='home'}"
+                            (click)="onSelect('home')">Home </a>
+                    </li>
+                    <li class="nav-item mx-sm-3">
+                        <a class="nav-link" aria-current="page"
+                            [ngClass]="{'active':selectedMenuOption==='favorite-Item'}"
+                            (click)="onSelect('favorite-Item')">Favorite Item</a>
+                    </li>
+                    <li class="nav-item mx-sm-3">
+                        <a class="nav-link" href="#" [ngClass]="{'active':selectedMenuOption==='cart-item'}"
+                            (click)="onSelect('cart-item')">Cart Item</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+    </div>
+</nav>

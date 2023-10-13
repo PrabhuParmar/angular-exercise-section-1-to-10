@@ -1,0 +1,44 @@
+/* header css start  */
+.header-main-section {
+    height: 57px;
+    margin: 4px;
+    border-radius: 19px;
+    -webkit-text-stroke: thin;
+}
+
+.header-main-section .header-title {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.header-main-section .navbar-nav .nav-link {
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.header-main-section .navbar-nav .nav-link:hover {
+    background-color: var(--primary-light-gray);
+}
+
+.header-main-section .navbar-nav .active {
+    background-color: var(--primary-light-gray);
+}
+
+.header-main-section .navbar-nav {
+    flex-direction: row;
+}
+
+@media screen and (max-width:575px) {
+    .header-main-section .navbar-nav {
+        flex-direction: column;
+    }
+
+    .header-main-section {
+        height: auto;
+    }
+
+    .header-main-section .navbar-nav .nav-link {
+        padding-left: 14px;
+    }
+}

@@ -1,0 +1,14 @@
+/* Favorite Item list css Start  */
+.item-list-section .item-list-container .remove-btn {
+    background-color: var(--primary-light-gray);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.item-list-section .item-list-container .remove-btn:hover {
+    background-color: var(--primary-white);
+}
+
+.item-list-section .item-list-container .add-to-cart-icon {
+    height: 28px;
+    cursor: pointer;
+}

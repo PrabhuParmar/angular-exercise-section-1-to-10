@@ -1,0 +1,10 @@
+<!-- Set Favorite Image Icon  -->
+<span *ngIf="selectedData.favoriteItem===true">
+    <button (click)="favoriteItem()" class="favorite-img-icon-btn"> <img src="../../../../assets/Image/heart.png" alt=""
+            class="favorite-img-icon"> </button>
+</span>
+
+<span *ngIf="selectedData.favoriteItem===false">
+    <button (click)="favoriteItem()" class="favorite-img-icon-btn" [disabled]="selectedData.favoriteItem===false"><img
+            src="../../../../assets/Image/heart (1).png" alt="" class="favorite-img-icon"></button>
+</span>

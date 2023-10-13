@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Spectral&display=swap');
+
+body {
+    font-family: 'Spectral', serif;
+    background: var(--primary-dark-gray);
+
+}
+
+:root {
+    --primary-dark-gray: #353535;
+    --primary-light-gray: #b9b2b22e;
+    --primary-white: white;
+}
+
+.empry-message-content {
+    color: var(--primary-white);
+}
+
+.empry-message {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+}
