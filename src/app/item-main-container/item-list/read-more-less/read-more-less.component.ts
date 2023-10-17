@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class ReadMoreLessComponent {
   @Input() text!: string;
   @Input() wordLimit!: number;
-  showMore!: boolean;
+  readMore!: boolean;
 };

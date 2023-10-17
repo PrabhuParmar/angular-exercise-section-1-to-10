@@ -1,5 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { FavoriteItemsService } from 'src/app/service/favorite-items.service';
+import { Component, ViewEncapsulation, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-item-list',
@@ -7,8 +6,11 @@ import { FavoriteItemsService } from 'src/app/service/favorite-items.service';
   styleUrls: ['./item-list.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ItemListComponent implements OnInit {
-  favorite!: itemListInterface | any;
+
+export class ItemListComponent implements OnInit, OnChanges {
+  @Input() selectedMenuOption!: string;
+  selecteMenu!: string;
+  favoriteItemList: itemListInterface[] = [];
 
   // Item List Array
   itemlist: itemListInterface[] = [
@@ -18,7 +20,7 @@ export class ItemListComponent implements OnInit {
       name: ' Hooded Shirt',
       price: 200,
       description: 'LEWEL Men Checked Slim Fit Hooded Shirt For Men Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur accusantium reprehenderit nisi excepturi, esse asperiores quis deserunt sint fugit similique quae numquam nobis velit autem dicta quam! Aliquid, quaerat. Ad!',
-      item_add_date: " 15 / 11 / 2023",
+      item_add_date: "21-07-2022",
       favoriteItem: true,
     },
     {
@@ -27,7 +29,7 @@ export class ItemListComponent implements OnInit {
       name: 'Light Grey',
       description: 'Powerlook Men Light Grey Oversized Chest Pocket Solid Casual ShirtsPowerlook',
       price: 600,
-      item_add_date: "1 / 12 / 2023",
+      item_add_date: "15-09-2022",
       favoriteItem: true,
     },
     {
@@ -36,7 +38,7 @@ export class ItemListComponent implements OnInit {
       name: 'White shirt',
       description: 'Powerlook Men White Oversized Vertical Striped Structured Fabric ShirtsPowerlook',
       price: 200,
-      item_add_date: "10 / 12 / 2020",
+      item_add_date: "05-07-2023",
       favoriteItem: true,
     },
     {
@@ -45,7 +47,7 @@ export class ItemListComponent implements OnInit {
       name: 'Black Sirt',
       description: 'HERE&NOW Men Black Slim Fit Casual Shirt by Myntra',
       price: 200,
-      item_add_date: "08 / 12 / 2023",
+      item_add_date: "25-07-2023",
       favoriteItem: true,
     },
     {
@@ -54,7 +56,7 @@ export class ItemListComponent implements OnInit {
       name: 'Lymio Casual Shirt',
       description: 'Lymio Casual Shirt for Men| Shirt for Men',
       price: 800,
-      item_add_date: "25 / 6 / 2023",
+      item_add_date: "10-12-2023",
       favoriteItem: true,
     },
     {
@@ -63,7 +65,7 @@ export class ItemListComponent implements OnInit {
       name: 'Cotton shirt',
       description: 'Dennis Lingo Mens Cotton Solid Slim Fit Casual Shirt with Pocket',
       price: 200,
-      item_add_date: "10 / 11 / 2023",
+      item_add_date: "18-07-2020",
       favoriteItem: true,
     },
     {
@@ -72,38 +74,25 @@ export class ItemListComponent implements OnInit {
       name: 'Relaxed Fit Hoodie',
       description: 'Men H&M White Relaxed Fit Hoodie',
       price: 450,
-      item_add_date: "25 / 12 / 2023",
+      item_add_date: "15-12-2023",
       favoriteItem: true,
     },
-
   ];
 
-  constructor(private favoriteItemData: FavoriteItemsService) {
-    this.favorite = favoriteItemData.favoriteItemList;
+  // Favorite Item list 
+  addFavoriteItemList = (item: itemListInterface) => {
+    this.favoriteItemList.push(item);
   };
+
+  // selecte Any Menu
+  ngOnChanges(changes: SimpleChanges): void {
+    this.selecteMenu = this.selectedMenuOption;
+  }
 
   ngOnInit(): void {
-
-    this.itemlist.map((data) => {
-      let dateArr = data.item_add_date.split('/');
-      let year = parseFloat(dateArr[2]);
-      let month = parseFloat(dateArr[1]) - 1;
-      let day = parseFloat(dateArr[0]);
-
-      let articleDate = new Date(year, month, day);
-      data.item_add_date = articleDate.toLocaleDateString();
-    });
-
-    // Set Add Favortite Items 
-    this.favorite.map((item: any) => {
-      this.itemlist.splice(item.id - 1, 1, item);
-    });
-
-    // Date Wise Sorting 
-    this.itemlist.sort(
-      (current, next) => (Number(new Date(next.item_add_date))) - (Number(new Date(current.item_add_date)))
-    );
+    this.itemlist.sort(({ item_add_date: current }, { item_add_date: next }) => next.split("-").reverse().join('').localeCompare(current.split("-").reverse().join('')));
   };
+
 };
 
 // Item list Interface 

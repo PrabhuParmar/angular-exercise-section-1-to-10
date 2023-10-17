@@ -1,0 +1,14 @@
+<!-- Read More and Read less css start  -->
+<span *ngIf="text.length <= wordLimit">
+    {{text}}
+</span>
+<span *ngIf="text.length > wordLimit  && !readMore">
+    <span [ngClass]="{ 'read-more-content': !readMore }"> {{text.substring(0,wordLimit)}}</span> <span
+        (click)="readMore= true" class="read-more"> Read More &#9660;</span>
+</span>
+
+<span *ngIf="text.length > wordLimit  && readMore">
+    {{text}} <span (click)="readMore=false" class="read-more d-flex flex-nowrap"> Read Less &#9650;</span>
+</span>
+
+<!-- Read More and Read less css End  -->

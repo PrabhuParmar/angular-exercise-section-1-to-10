@@ -1,7 +1,7 @@
 <!-- Favorite Item css start  -->
 <div class="item-list-section container">
     <div class="item-list-container d-flex justify-content-evenly flex-wrap row g-0">
-        <div class="card card-main-section " *ngFor="let item of favoriteItemListData let data">
+        <div class="card card-main-section " *ngFor="let item of favoriteItem let data">
             <img src={{item.image}} alt="" class="card-item-image">
             <div class="favorite-item ">
                 <app-add-favorite [selectedData]="data"></app-add-favorite>
@@ -9,7 +9,7 @@
             <div class="card-body">
                 <h5 class="card-title m-0  my-2">{{item.name}}</h5>
                 <app-read-more-less [text]="item.description" [wordLimit]="60"></app-read-more-less>
-                <p class="item-price m-0  my-2"> <span class="price-title"> Price : $ </span>{{item.price}} </p>
+                <p class="item-price m-0  my-2"> <span class="price-title"> Price : </span> $ {{item.price}} </p>
                 <p class="item-date  m-0 my-2"><span class="price-title">Date : </span> {{item.item_add_date}} </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <button class="btn remove-btn" (click)="removeFavoriteItem(data)">Remove</button>
@@ -20,7 +20,8 @@
         </div>
     </div>
 </div>
+
 <!-- Empty Message  -->
-<div *ngIf="favoriteItemListData.length == 0 " class="empry-message-content d-flex justify-content-center">
+<div *ngIf="favoriteItem.length == 0 " class="empry-message-content d-flex justify-content-center">
     <h1 class="empry-message"> Your Favorite Items List Is empty </h1>
 </div>

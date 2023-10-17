@@ -1,0 +1,12 @@
+/* Read More and Read Less Css  */
+.read-more {
+    font-weight: bold;
+}
+
+.read-more-content {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

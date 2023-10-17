@@ -6,7 +6,7 @@
     margin: 20px;
     background: #fff;
     height: fit-content;
-    min-height: 577px;
+    min-height: 583px;
 }
 
 .item-list-section .item-list-container .card-main-section:hover {
@@ -28,6 +28,11 @@
 
 .item-list-section .item-list-container .card-main-section .read-more {
     font-weight: 600;
+    cursor: pointer;
+}
+
+.item-list-section .item-list-container .card-main-section .read-more:hover {
+    color: var(--primary-gray);
 }
 
 .item-list-section .item-list-container .card-main-section .price-title {

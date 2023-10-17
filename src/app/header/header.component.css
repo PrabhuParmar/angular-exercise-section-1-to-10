@@ -17,13 +17,11 @@
     border-radius: 20px;
 }
 
-.header-main-section .navbar-nav .nav-link:hover {
-    background-color: var(--primary-light-gray);
-}
-
+.header-main-section .navbar-nav .nav-link:hover,
 .header-main-section .navbar-nav .active {
     background-color: var(--primary-light-gray);
 }
+
 
 .header-main-section .navbar-nav {
     flex-direction: row;
