@@ -1,0 +1,90 @@
+<!-- success Animation  -->
+<div class="animation-section row g-0" *ngIf="animationShow">
+    <div class="lottie-animation mt-10 col-12">
+        <ng-lottie [options]="AnimationOptions" class="d-flex justify-content-center success-img">
+        </ng-lottie>
+    </div>
+</div>
+
+<!-- Item Buy  -->
+<div class="offcanvas offcanvas-end buy-now-section" tabindex="-1" id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header justify-content-center">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Buy Item </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="customer-form-section">
+            <div class="mb-3">
+                <div>
+                    <h1 class="item-name mb-3"> {{itembuy.name}} </h1>
+                </div>
+            </div>
+            <div class="customer-form-container">
+                <!-- Form And Input Validation error  -->
+                <form class="customer-form " [formGroup]="customerForm">
+                    <div class="mb-3 customer-data">
+                        <label class="form-label">Enter Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
+                        <div id="emailHelp" class="form-text error-text"
+                            *ngIf="setNameValidation && setNameValidation.invalid && setNameValidation.touched">
+                            Enter Valid User name</div>
+                    </div>
+                    <div class="mb-3 customer-data">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" placeholder="Enter Email address"
+                            formControlName="email">
+                        <div id="emailHelp" class="form-text error-text"
+                            *ngIf="setEmailValidation && setEmailValidation.invalid && setEmailValidation.touched">
+                            Enter Valid Email Address </div>
+                    </div>
+                    <div class="mb-3 customer-data">
+                        <label class="form-label">Mobile Number</label>
+                        <input type="number" class="form-control" placeholder="Enter Mobile Number"
+                            formControlName="number">
+                        <div *ngIf="setMobileNumberValidation['number'].touched && setMobileNumberValidation['number'].invalid"
+                            class="form-text error-text">
+                            <div
+                                *ngIf="setMobileNumberValidation['number'].errors && setMobileNumberValidation['number'].errors['required']">
+                                number is required.</div>
+                            <div
+                                *ngIf="setMobileNumberValidation['number'].errors && setMobileNumberValidation['number'].errors['pattern']">
+                                number must be 10 digit.</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 customer-data">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-control" placeholder="Enter Address here....."
+                            formControlName="address"></textarea>
+                        <div id="emailHelp" class="form-text error-text"
+                            *ngIf="setAddressValidation && setAddressValidation.invalid && setAddressValidation.touched">
+                            Enter Address </div>
+                    </div>
+
+                    <div class="mb-3 customer-data">
+                        <label class="form-label">Quantity</label>
+                        <div class="d-flex justify-content-start align-items-center">
+                            <button class="btn add-quantity-btn d-flex align-items-center justify-content-around"> <img
+                                    src="../../../../../assets/Image/plus.png" alt="" class="increment-quantity-img"
+                                    (click)="incrementQuantity()"> </button>
+                            <span class="quantity-number text-center"> {{quantityCount}}</span>
+                            <button class="btn add-quantity-btn d-flex align-items-center justify-content-around"
+                                (click)="decrementQuantity()"> <img src="../../../../../assets/Image/minus.png" alt=""
+                                    class="increment-quantity-img">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="btn-section d-flex justify-content-center">
+                        <button type="submit" class="btn submit-btn" (click)="submitCustomerData()"
+                            [disabled]="customerForm.invalid" data-bs-dismiss="offcanvas"
+                            aria-label="Close">Submit</button>
+                        <button type="submit" class="btn submit-btn ms-3" data-bs-dismiss="offcanvas"
+                            aria-label="Close">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

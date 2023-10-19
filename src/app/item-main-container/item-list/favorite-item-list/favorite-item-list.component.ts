@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { itemListInterface } from '../item-list.component';
 import { CartDataService } from 'src/app/service/cart-data.service';
+import { SetFavoriteItemService } from 'src/app/service/set-favorite-item.service';
 
 
 @Component({
@@ -9,17 +10,14 @@ import { CartDataService } from 'src/app/service/cart-data.service';
   styleUrls: ['./favorite-item-list.component.css']
 })
 export class FavoriteItemListComponent {
-  @Input() favoriteItem: itemListInterface[] = [];
-
-  constructor(private cartData: CartDataService) { }
+  favoriteItem: itemListInterface[] = []
+  constructor(private cartData: CartDataService, private setfavoriteItem: SetFavoriteItemService) {
+    this.favoriteItem = setfavoriteItem.favoriteItemList;
+  };
 
   // Remove Favorite  items 
   removeFavoriteItem = (item: itemListInterface) => {
-    const index = this.favoriteItem.indexOf(item);
-    if (index !== -1) {
-      this.favoriteItem.splice(index, 1);
-      item.favoriteItem = true;
-    };
+    this.setfavoriteItem.removeItem(item)
   };
 
   // Items add to cart 

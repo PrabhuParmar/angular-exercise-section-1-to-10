@@ -10,6 +10,15 @@ import { AddFavoriteComponent } from './item-main-container/item-list/add-favori
 import { FavoriteItemListComponent } from './item-main-container/item-list/favorite-item-list/favorite-item-list.component';
 import { CartItemListComponent } from './item-main-container/item-list/cart-item-list/cart-item-list.component';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { BuyNowComponent } from './item-main-container/item-list/cart-item-list/buy-now/buy-now.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'
+import { LottieModule } from 'ngx-lottie';
+
+// Export this function
+export function playerFactory(): any {
+  return import('lottie-web');
+}
 
 @NgModule({
   declarations: [
@@ -20,12 +29,16 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     ReadMoreLessComponent,
     AddFavoriteComponent,
     FavoriteItemListComponent,
-    CartItemListComponent
+    CartItemListComponent,
+    BuyNowComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    NgbTooltipModule
+    NgbTooltipModule,
+    FormsModule,
+    ReactiveFormsModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [],
   bootstrap: [AppComponent]

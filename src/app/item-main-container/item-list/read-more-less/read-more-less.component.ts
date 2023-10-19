@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./read-more-less.component.css']
 })
 export class ReadMoreLessComponent {
+
   @Input() text!: string;
   @Input() wordLimit!: number;
   readMore!: boolean;

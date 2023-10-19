@@ -1,16 +1,19 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { AfterContentChecked, Component } from '@angular/core';
+import { SetNavMenuService } from '../service/set-nav-menu.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterContentChecked {
   selectedMenuOption: string = 'home';
-  @Output() selectedPage = new EventEmitter<string>();
-
+  constructor(private setNavMenu: SetNavMenuService) { }
   // select Menu Option 
   onSelect = (item: string) => {
+    this.setNavMenu.selectNavMenu(item)
     this.selectedMenuOption = item;
-    this.selectedPage.emit(this.selectedMenuOption);
   };
+  ngAfterContentChecked(): void {
+    this.selectedMenuOption = this.setNavMenu.selectedMenuOption
+  }
 };

@@ -30,4 +30,5 @@ export class CartDataService {
     this.setCartItems = this.cartItemList.filter(({ id }, index) =>
       !itemId.includes(id, index + 1));
   };
+
 };

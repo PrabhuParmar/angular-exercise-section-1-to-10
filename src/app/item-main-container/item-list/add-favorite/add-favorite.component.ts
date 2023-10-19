@@ -1,5 +1,7 @@
-import { Component, Input, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { itemListInterface } from '../item-list.component';
+import { CartDataService } from 'src/app/service/cart-data.service';
+import { SetFavoriteItemService } from 'src/app/service/set-favorite-item.service';
 
 @Component({
   selector: 'app-add-favorite',
@@ -9,13 +11,20 @@ import { itemListInterface } from '../item-list.component';
 
 })
 export class AddFavoriteComponent {
+
   @Input() selectedData!: itemListInterface;
-  @Output() setfavoriteItemData = new EventEmitter<any>();
+  favoriteItemStatus: boolean = true;
+  constructor(private CartDataServiceData: CartDataService, private setfavoriteItem: SetFavoriteItemService) { }
 
   // Favorite Item data 
   favoriteItem = () => {
-    this.selectedData.favoriteItem = false;
-    this.setfavoriteItemData.emit(this.selectedData);
+    this.selectedData.favoriteItem = this.favoriteItemStatus = !this.favoriteItemStatus;
+    this.setfavoriteItem.addFavoriteItem(this.selectedData)
+  };
+
+  // Remove Item 
+  removeItem = () => {
+    this.setfavoriteItem.removeItem(this.selectedData)
   };
 };
 

@@ -4,8 +4,7 @@
         <div class="card card-main-section " *ngFor="let item of itemlist let data">
             <img src={{item.image}} alt="" class="card-item-image">
             <div class="favorite-item ">
-                <app-add-favorite [selectedData]="data"
-                    (setfavoriteItemData)="addFavoriteItemList($event)"></app-add-favorite>
+                <app-add-favorite [selectedData]="data"></app-add-favorite>
             </div>
             <div class="card-body">
                 <h5 class="card-title m-0 my-2">{{item.name}}</h5>
@@ -17,7 +16,6 @@
     </div>
 </div>
 
-<app-favorite-item-list *ngIf=" selecteMenu==='favorite-Item'"
-    [favoriteItem]="favoriteItemList"></app-favorite-item-list>
+<app-favorite-item-list *ngIf=" selecteMenu==='favorite-Item'"></app-favorite-item-list>
 
 <app-cart-item-list *ngIf=" selecteMenu==='cart-item'"></app-cart-item-list>

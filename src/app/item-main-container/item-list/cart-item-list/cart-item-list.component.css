@@ -1,0 +1,9 @@
+/* cart Item list css  */
+.item-list-section .card-main-section .buy-btn {
+    background-color: var(--primary-light-gray);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.item-list-section .card-main-section .buy-btn:hover {
+    background-color: var(--primary-white);
+}

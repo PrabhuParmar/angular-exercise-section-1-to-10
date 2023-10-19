@@ -12,6 +12,7 @@ body {
     --primary-light-gray: #b9b2b22e;
     --primary-white: white;
     --primary-gray: gray;
+    --primary-red: red;
 }
 
 .empry-message-content {

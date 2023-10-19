@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, AfterContentChecked } from '@angular/core';
+import { SetFavoriteItemService } from 'src/app/service/set-favorite-item.service';
+import { SetNavMenuService } from 'src/app/service/set-nav-menu.service';
 
 @Component({
   selector: 'app-item-list',
@@ -7,10 +9,8 @@ import { Component, ViewEncapsulation, OnInit, Input, SimpleChanges, OnChanges }
   encapsulation: ViewEncapsulation.None,
 })
 
-export class ItemListComponent implements OnInit, OnChanges {
-  @Input() selectedMenuOption!: string;
+export class ItemListComponent implements OnInit, AfterContentChecked {
   selecteMenu!: string;
-  favoriteItemList: itemListInterface[] = [];
 
   // Item List Array
   itemlist: itemListInterface[] = [
@@ -79,20 +79,15 @@ export class ItemListComponent implements OnInit, OnChanges {
     },
   ];
 
-  // Favorite Item list 
-  addFavoriteItemList = (item: itemListInterface) => {
-    this.favoriteItemList.push(item);
-  };
+  constructor(private setFavoriteItem: SetFavoriteItemService, private setNavMenu: SetNavMenuService) { }
 
-  // selecte Any Menu
-  ngOnChanges(changes: SimpleChanges): void {
-    this.selecteMenu = this.selectedMenuOption;
-  }
+  ngAfterContentChecked(): void {
+    this.selecteMenu = this.setNavMenu.selectedMenuOption;
+  };
 
   ngOnInit(): void {
     this.itemlist.sort(({ item_add_date: current }, { item_add_date: next }) => next.split("-").reverse().join('').localeCompare(current.split("-").reverse().join('')));
   };
-
 };
 
 // Item list Interface 

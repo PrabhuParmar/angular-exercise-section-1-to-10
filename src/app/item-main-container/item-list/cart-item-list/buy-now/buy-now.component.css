@@ -1,0 +1,63 @@
+/* Buy Now Css  */
+.animation-section {
+    position: fixed;
+    top: 0;
+    width: -webkit-fill-available;
+    height: 100vh;
+}
+
+.animation-section .success-img {
+    height: 500px;
+    position: relative;
+    top: 25%;
+}
+
+.buy-now-section .offcanvas-title {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.buy-now-section .btn-close {
+    position: absolute;
+    right: 16px;
+}
+
+.buy-now-section .customer-form-section .error-text {
+    color: var(--primary-red);
+}
+
+.buy-now-section .customer-form-section .submit-btn {
+    background-color: var(--primary-light-gray);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.buy-now-section .customer-form-section .submit-btn:hover {
+    background-color: var(--primary-white);
+}
+
+.buy-now-section .customer-form-section .submit-btn:disabled {
+    background-color: var(--primary-light-gray);
+    border: 1px solid var(--primary-gray);
+}
+
+
+.buy-now-section .customer-form-section .item-name {
+    font-size: 21px;
+    -webkit-text-security: none;
+}
+
+.buy-now-section .customer-form-section .add-quantity-btn {
+    height: 30px;
+    width: 30px;
+    background-color: var(--primary-light-gray);
+    border-radius: 50%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.buy-now-section .customer-form-section .quantity-number {
+    width: 50px;
+}
+
+.buy-now-section .customer-form-section .increment-quantity-img {
+    width: 18px;
+}

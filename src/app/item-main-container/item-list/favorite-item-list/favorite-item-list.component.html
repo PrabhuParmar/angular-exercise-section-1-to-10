@@ -4,7 +4,8 @@
         <div class="card card-main-section " *ngFor="let item of favoriteItem let data">
             <img src={{item.image}} alt="" class="card-item-image">
             <div class="favorite-item ">
-                <app-add-favorite [selectedData]="data"></app-add-favorite>
+                <button class="favorite-img-icon-btn"> <img src="../../../../assets/Image/heart (1).png" alt=""
+                        class="favorite-img-icon"> </button>
             </div>
             <div class="card-body">
                 <h5 class="card-title m-0  my-2">{{item.name}}</h5>

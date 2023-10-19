@@ -6,7 +6,8 @@
     margin: 20px;
     background: #fff;
     height: fit-content;
-    min-height: 583px;
+    min-height: 615px;
+    ;
 }
 
 .item-list-section .item-list-container .card-main-section:hover {
