@@ -18,13 +18,13 @@ export class AddFavoriteComponent {
 
   // Favorite Item data 
   favoriteItem = () => {
-    this.selectedData.favoriteItem = this.favoriteItemStatus = !this.favoriteItemStatus;
-    this.setfavoriteItem.addFavoriteItem(this.selectedData)
+    this.selectedData.favoriteItem = false
+    this.setfavoriteItem.addFavoriteItem(this.selectedData);
   };
 
   // Remove Item 
   removeItem = () => {
-    this.setfavoriteItem.removeItem(this.selectedData)
+    this.setfavoriteItem.removeItem(this.selectedData);
   };
 };
 
