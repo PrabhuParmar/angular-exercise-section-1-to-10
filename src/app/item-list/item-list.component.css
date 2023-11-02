@@ -47,13 +47,3 @@
 }
 
 /* Item list css End  */
-
-.favorite-img-icon {
-    cursor: pointer;
-    height: 30px;
-}
-
-.favorite-img-icon-btn {
-    border: none;
-    background-color: transparent;
-}
