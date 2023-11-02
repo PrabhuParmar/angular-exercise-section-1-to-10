@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'exercise2-project2';
-  menuData: string = 'home';
-
-  selectedMenu = (data: string) => {
-    this.menuData = data;
-  };
 };

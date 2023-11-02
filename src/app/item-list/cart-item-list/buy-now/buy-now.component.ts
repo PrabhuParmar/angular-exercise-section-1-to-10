@@ -2,7 +2,8 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import { itemListInterface } from '../../item-list.component';
 import { CartDataService } from 'src/app/service/cart-data.service';
-import { SetNavMenuService } from 'src/app/service/set-nav-menu.service';
+import { SetHeaderService } from 'src/app/service/set-header.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-now',
@@ -10,7 +11,7 @@ import { SetNavMenuService } from 'src/app/service/set-nav-menu.service';
   styleUrls: ['./buy-now.component.css']
 })
 export class BuyNowComponent implements OnChanges {
-  constructor(private CartDataServiceData: CartDataService, private setNavMenu: SetNavMenuService) {
+  constructor(private CartDataServiceData: CartDataService, private setNavMenu: SetHeaderService, private router: Router) {
   }
 
   @Input() itembuy!: itemListInterface;
@@ -21,7 +22,7 @@ export class BuyNowComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     this.quantityCount = this.itembuy.count;
     this.quantity = this.itembuy.count;
-  }
+  };
 
   //  Set Validation 
   customerForm = new FormGroup({
@@ -52,7 +53,7 @@ export class BuyNowComponent implements OnChanges {
     this.animationShow = true;
     setTimeout(() => {
       this.animationShow = false;
-      this.setNavMenu.selectedMenuOption = 'home';
+      this.router.navigate(['/item-list'])
     }, 3000);
   };
 

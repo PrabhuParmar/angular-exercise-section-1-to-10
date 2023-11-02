@@ -1,6 +1,5 @@
-import { Component, ViewEncapsulation, OnInit, AfterContentChecked } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, AfterViewInit } from '@angular/core';
 import { SetFavoriteItemService } from 'src/app/service/set-favorite-item.service';
-import { SetNavMenuService } from 'src/app/service/set-nav-menu.service';
 
 @Component({
   selector: 'app-item-list',
@@ -9,9 +8,7 @@ import { SetNavMenuService } from 'src/app/service/set-nav-menu.service';
   encapsulation: ViewEncapsulation.None,
 })
 
-export class ItemListComponent implements OnInit, AfterContentChecked {
-  selecteMenu!: string;
-
+export class ItemListComponent implements OnInit {
   // Item List Array
   itemlist: itemListInterface[] = [
     {
@@ -79,11 +76,7 @@ export class ItemListComponent implements OnInit, AfterContentChecked {
     },
   ];
 
-  constructor(private setFavoriteItem: SetFavoriteItemService, private setNavMenu: SetNavMenuService) { }
-
-  ngAfterContentChecked(): void {
-    this.selecteMenu = this.setNavMenu.selectedMenuOption;
-  };
+  constructor(private setFavoriteItem: SetFavoriteItemService) { }
 
   ngOnInit(): void {
     this.itemlist.sort(({ item_add_date: current }, { item_add_date: next }) => next.split("-").reverse().join('').localeCompare(current.split("-").reverse().join('')));

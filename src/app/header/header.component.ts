@@ -1,19 +1,22 @@
-import { AfterContentChecked, Component } from '@angular/core';
-import { SetNavMenuService } from '../service/set-nav-menu.service';
+import { AfterContentChecked, Component, OnDestroy } from '@angular/core';
+import { SetHeaderService } from '../service/set-header.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements AfterContentChecked {
-  selectedMenuOption: string = 'home';
-  constructor(private setNavMenu: SetNavMenuService) { }
-  // select Menu Option 
-  onSelect = (item: string) => {
-    this.setNavMenu.selectNavMenu(item)
-    this.selectedMenuOption = item;
+export class HeaderComponent implements OnDestroy {
+  showNavBar: boolean = true;
+  subscription!: Subscription;
+
+  constructor(private route: ActivatedRoute, private navBar: SetHeaderService) {
+    this.subscription = navBar.loggedIn.subscribe((value) => {
+      this.showNavBar = value;
+    });
   };
-  ngAfterContentChecked(): void {
-    this.selectedMenuOption = this.setNavMenu.selectedMenuOption
-  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  };
 };

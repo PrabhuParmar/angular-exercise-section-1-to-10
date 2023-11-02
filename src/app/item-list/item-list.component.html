@@ -1,5 +1,5 @@
 <!-- Item list display  -->
-<div class="item-list-section container" *ngIf="selecteMenu==='home'">
+<div class="item-list-section container">
     <div class="item-list-container d-flex justify-content-evenly flex-wrap row g-0">
         <div class="card card-main-section " *ngFor="let item of itemlist let data">
             <img src={{item.image}} alt="" class="card-item-image">
@@ -15,7 +15,3 @@
         </div>
     </div>
 </div>
-
-<app-favorite-item-list *ngIf=" selecteMenu==='favorite-Item'"></app-favorite-item-list>
-
-<app-cart-item-list *ngIf=" selecteMenu==='cart-item'"></app-cart-item-list>

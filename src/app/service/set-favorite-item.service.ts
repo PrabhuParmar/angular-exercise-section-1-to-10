@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { itemListInterface } from '../item-main-container/item-list/item-list.component';
+import { itemListInterface } from '../item-list/item-list.component';
 
 @Injectable({
   providedIn: 'root'
